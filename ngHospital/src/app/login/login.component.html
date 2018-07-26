@@ -1,0 +1,23 @@
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+<div class="login-wrapper">
+    <div class="container">
+        <div class="card card-container">
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin" #loginForm="ngForm" (ngSubmit)="onLogin()">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" id="inputEmail" class="form-control" placeholder="E-posta" required autofocus name="email" ngModel>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Şifre" required name="password" ngModel>
+                <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Hatırla beni
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Giriş Yap</button>
+            </form>
+            <a href="" class="forgot-password">
+                Şifremi Unuttum
+            </a>
+        </div>
+    </div>
+</div>

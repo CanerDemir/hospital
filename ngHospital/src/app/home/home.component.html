@@ -1,0 +1,9 @@
+<div class="container">
+	
+</div>
+<div class="jumbotron">
+	<h3>Hoşgeldin
+		<span *ngIf="user">{{user.name}} {{user.surname}}</span>
+		<span *ngIf="!user">Misafir</span>
+	</h3>
+</div>
