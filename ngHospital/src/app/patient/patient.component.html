@@ -8,16 +8,16 @@
 		<thead class="thead-dark">
 			<tr>
 				<th scope="col">#</th>
-				<th scope="col">First</th>
-				<th scope="col">Last</th>
-				<th scope="col">Handle</th>
+				<th scope="col">Ad</th>
+				<th scope="col">Soyad</th>
+				<th scope="col">Hastalıklar</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
+			<tr *ngFor="let p of patientList; let i = index">
 				<th scope="row">1</th>
-				<td>Mark</td>
-				<td>Otto</td>
+				<td>{{p.name}}</td>
+				<td>{{p.surname}}</td>
 				<td>@mdo</td>
 			</tr>
 		</tbody>
@@ -25,7 +25,7 @@
 </div>
 
 <p-dialog header="Hasta Ekle" [(visible)]="displayPatientDialog" [responsive]="true" [baseZIndex]="10000" [width]="550" [minWidth]="200" [minY]="70">
-	<form #patientForm="ngForm" (ngSubmit)="addPatient()">
+	<form #patientForm="ngForm" (ngSubmit)="savePatient()">
 		<div class="row">
 			<mat-form-field>
 				<input matInput placeholder="Hasta Adı" id="name" name="name" ngModel>

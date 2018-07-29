@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Disease } from '../models/disease.model';
+import { DiseaseService } from '../services/disease-service.service';
 
 @Component({
   selector: 'app-disease',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DiseaseComponent implements OnInit {
 
-  constructor() { }
+	constructor(private diseaseService: DiseaseService) { }
 
-  ngOnInit() {
-  }
+	diseaseList: Disease[];
+	displayDiseaseDialog: boolean = false;
 
+	ngOnInit() {
+		this.getDiseaseList();
+	}
+
+	showDialog(){
+		this.displayDiseaseDialog = true;
+	}
+
+	getDiseaseList(){
+		this.diseaseService.getDiseaseList().subscribe(
+			(resp: Disease[]) => {
+				this.diseaseList = resp;
+			}
+		);
+	}
 }

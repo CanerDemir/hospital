@@ -2,11 +2,11 @@ package com.hospital.hospital.models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -33,7 +33,6 @@ public class Patient {
 	@Column(name="surname")
 	private String surname;
 	
-	@OneToMany
-	@JoinColumn(name="disease", columnDefinition="disease", referencedColumnName="id")
+	@OneToMany(mappedBy="patient", cascade = CascadeType.ALL)
 	private List<Disease> diseases;
 }
