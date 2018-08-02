@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -33,6 +34,7 @@ public class Patient {
 	@Column(name="surname")
 	private String surname;
 	
-	@OneToMany(mappedBy="patient", cascade = CascadeType.ALL)
+	@OneToMany()
+	@JoinColumn(name="patient_id")
 	private List<Disease> diseases;
 }

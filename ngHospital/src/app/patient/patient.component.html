@@ -18,7 +18,7 @@
 				<th scope="row">1</th>
 				<td>{{p.name}}</td>
 				<td>{{p.surname}}</td>
-				<td>@mdo</td>
+				<td>{{p.diseases[0].diseaseName}}</td>
 			</tr>
 		</tbody>
 	</table>
@@ -34,6 +34,15 @@
 		<div class="row">
 			<mat-form-field>
 				<input matInput placeholder="Hasta Soyadı" id="surname" name="surname" ngModel>
+			</mat-form-field>
+		</div>
+		<div class="row">
+			<mat-form-field>
+				<mat-select placeholder="Hastalık Seçiniz" ngModel name="disease">
+					<mat-option *ngFor="let item of diseaseList" [value]="item">
+						{{item.diseaseName}}
+					</mat-option>
+				</mat-select>
 			</mat-form-field>
 		</div>
 		<div class="row justify-content-end">
