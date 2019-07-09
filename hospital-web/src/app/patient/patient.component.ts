@@ -17,15 +17,10 @@ export class PatientComponent implements OnInit {
 	@ViewChild('patientForm', null) patientForm: NgForm;
 	patientList: Patient[];
 	diseaseList: Disease[];
-	displayPatientDialog: boolean = false;
 
 	ngOnInit() {
 		this.getPatientList();
 		this.getDiseaseList();
-	}
-
-	showDialog(){
-		this.displayPatientDialog = true;
 	}
 
 	getPatientList(){
@@ -40,7 +35,6 @@ export class PatientComponent implements OnInit {
 		this.patientForm.value.diseases = [this.patientForm.value.disease];
 		this.patientService.savePatient(this.patientForm.value).subscribe(
 			(resp) => {
-				this.displayPatientDialog = false;
 				this.getPatientList();
 				this.patientForm.reset();
 			}

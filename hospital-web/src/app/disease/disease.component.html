@@ -1,1 +1,30 @@
-<p>disease works!</p>
+<div class="cnr-wrapper">
+	<div class="cnr-form cnr-box">
+		<form #diseaseForm="ngForm">
+			<mat-form-field>
+				<input matInput placeholder="Hastalık Adı" name="diseaseName" ngModel>
+			</mat-form-field>
+			<mat-form-field>
+				<input matInput placeholder="Hastalık Tanımı" name="diseaseDescription" ngModel>
+			</mat-form-field>
+			<button type="button" mat-raised-button color="primary" (click)="save(diseaseForm.value)">Kaydet</button>
+		</form>
+	</div>
+
+	<div class="cnr-table cnr-box">
+		<table class="table table-striped table-hover">
+			<thead style="background: antiquewhite">
+				<tr>
+					<th scope="col">Hastalık Adı</th>
+					<th scope="col">Hastalık Tanımı</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of diseaseList">
+					<th>{{item.diseaseName}}</th>
+					<td>{{item.diseaseDescription}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

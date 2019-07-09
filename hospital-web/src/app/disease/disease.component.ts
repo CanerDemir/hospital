@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { Disease } from '../models/disease.model';
 import { DiseaseService } from '../services/disease-service.service';
+import {NgForm} from "@angular/forms";
 
 @Component({
 	selector: 'app-disease',
@@ -12,20 +13,25 @@ export class DiseaseComponent implements OnInit {
 	constructor(private diseaseService: DiseaseService) { }
 
 	diseaseList: Disease[];
-	displayDiseaseDialog: boolean = false;
+	@ViewChild("diseaseForm", null) diseaseForm: NgForm;
 
 	ngOnInit() {
 		this.getDiseaseList();
-	}
-
-	showDialog(){
-		this.displayDiseaseDialog = true;
 	}
 
 	getDiseaseList(){
 		this.diseaseService.getDiseaseList().subscribe(
 			(resp: Disease[]) => {
 				this.diseaseList = resp;
+			}
+		);
+	}
+
+	save(disease: any) {
+		this.diseaseService.saveDisease(disease).subscribe(
+			(resp: any) => {
+				this.diseaseForm.form.reset();
+				this.getDiseaseList();
 			}
 		);
 	}

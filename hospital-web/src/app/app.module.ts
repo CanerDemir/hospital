@@ -11,10 +11,10 @@ import { PatientComponent } from './patient/patient.component';
 import { HeaderComponent } from './header/header.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {AppMaterialModule} from "./app-material.module";
-import {AppPrimengModule} from "./app-primeng.module";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {MessageService} from "primeng/api";
+import { DoctorComponent } from './doctor/doctor.component';
 
 @NgModule({
 	declarations: [
@@ -24,7 +24,8 @@ import {MessageService} from "primeng/api";
 		DrugComponent,
 		DiseaseComponent,
 		PatientComponent,
-		HeaderComponent
+		HeaderComponent,
+		DoctorComponent
 	],
 	imports: [
 		BrowserModule,
@@ -32,8 +33,7 @@ import {MessageService} from "primeng/api";
 		HttpClientModule,
 		FormsModule,
 		AppRoutingModule,
-		AppMaterialModule,
-		AppPrimengModule
+		AppMaterialModule
 	],
 	providers: [MessageService],
 	bootstrap: [AppComponent]

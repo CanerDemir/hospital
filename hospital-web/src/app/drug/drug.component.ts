@@ -14,14 +14,9 @@ export class DrugComponent implements OnInit {
 
 	@ViewChild('drugForm', null) drugForm: NgForm;
 	drugList: Drug[];
-	displayDrugDialog: boolean = false;
 
 	ngOnInit() {
 		this.getDrugList();
-	}
-
-	showDialog(){
-		this.displayDrugDialog = true;
 	}
 
 	getDrugList(){
@@ -37,10 +32,9 @@ export class DrugComponent implements OnInit {
 			drugId: "",
 			drugName: this.drugForm.value.drugName,
 			drugDescription: this.drugForm.value.drugDescription
-		}
+		};
 		this.drugService.saveDrug(drug).subscribe(
 			(resp) => {
-				this.displayDrugDialog = false;
 				this.getDrugList();
 				this.drugForm.reset();
 			}

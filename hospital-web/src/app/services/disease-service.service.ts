@@ -17,6 +17,6 @@ export class DiseaseService {
     }
 
     saveDisease(disease){
-        return this.httpClient.get(DiseaseApi.saveDisease, disease).pipe();
+        return this.httpClient.post(DiseaseApi.saveDisease, disease).pipe();
     }
 }
